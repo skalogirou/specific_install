@@ -100,10 +100,10 @@ class Gem::Commands::SpecificInstallCommand < Gem::Command
   end
 
   def install_shorthand
-    output.puts "Installing from git@github.com:#{@loc}.git"
+    output.puts "Installing from #{@loc}.git"
 
     redirect_for_specs = ENV.fetch( "SPECIFIC_INSTALL_SPEC" ) { "" }
-    system("git clone git@github.com:#{@loc}.git #{@dir} #{redirect_for_specs}")
+    system("git clone #{@loc}.git #{@dir} #{redirect_for_specs}")
     install_from_git(@dir)
   end
 
